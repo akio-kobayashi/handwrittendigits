@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"> </script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"  crossorigin="anonymous"></script>  
 </head>
 <body>
-  描画キャンバス
+  下の黒い四角形の中に0から9までの数字を書いてください
   <div><canvas id="WriteCanvas" width="240" height="240"></canvas></div>
+  <div id="slider"></div>
   <div><canvas id="ButtonCanvas" width="240" height="100"></canvas></div>
-  PNG形式
-  <div><img id="copyImg" width="240" height="240" background="#000000"></div>
+  <!--PNG形式
+  <div><img id="copyImg" width="240" height="240" background="#000000"></div> -->
 </body>
 </html>
 
@@ -80,6 +84,16 @@ function init() {
         stage1.update(); // Stageの描画を更新
     }
 
+    let slider = document.getElementById('slider');
+
+    noUiSlider.create(slider, {
+        start: [20],      //スライダーバーの初期位置を指定
+        range: {
+            'min': 10,           //スライダーバーの最小値
+            'max': 100          //スライダーバーの最大値
+        }
+    });
+
     // --------------------------------------------------------------
     // Stage2オブジェクト：ButtonCanvas
     // --------------------------------------------------------------
@@ -131,7 +145,7 @@ function init() {
         shape.graphics.endFill();
         stage1.update();
         var png = stage1.canvas.toDataURL();
-        document.getElementById("copyImg").src = png;
+        //document.getElementById("copyImg").src = png;
     }
 
     // 時間経過イベント
