@@ -6,11 +6,18 @@
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"> </script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"  crossorigin="anonymous"></script>  
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"  crossorigin="anonymous"></script>
+  <style>
+    #slider {
+        width: 240px;
+        margin: 0
+    }
+  </style>
 </head>
 <body>
   下の黒い四角形の中に0から9までの数字を書いてください
   <div><canvas id="WriteCanvas" width="240" height="240"></canvas></div>
+  線の太さ
   <div id="slider" width="240" height="100"></div>
   <div><canvas id="ButtonCanvas" width="240" height="100"></canvas></div>
   <!--PNG形式
@@ -25,13 +32,18 @@ function init() {
     let slider = document.getElementById('slider');
 
     noUiSlider.create(slider, {
-        start: [20],      //スライダーバーの初期位置を指定
+        start: [10],      //スライダーバーの初期位置を指定
         range: {
-            'min': 10,           //スライダーバーの最小値
-            'max': 100          //スライダーバーの最大値
+            'min': 1,           //スライダーバーの最小値
+            'max': 30          //スライダーバーの最大値
+        },
+        step: 1,
+        pips: {
+            mode: 'steps',
+            density: 5,
         }
     });
-    
+
     // --------------------------------------------------------------
     // Stage1オブジェクト：WriteCanvas
     // --------------------------------------------------------------
