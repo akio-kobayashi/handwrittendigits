@@ -11,7 +11,7 @@
 <body>
   下の黒い四角形の中に0から9までの数字を書いてください
   <div><canvas id="WriteCanvas" width="240" height="240"></canvas></div>
-  <div id="slider"></div>
+  <div id="slider" width="240" height="100"></div>
   <div><canvas id="ButtonCanvas" width="240" height="100"></canvas></div>
   <!--PNG形式
   <div><img id="copyImg" width="240" height="240" background="#000000"></div> -->
@@ -47,9 +47,12 @@ function init() {
         var paintColor = "#FFFFFF"                      // 筆ペンの色
 
         // 線の描画を開始
+        objSlide1 = $('.noUi-handle')[0];
+        const sliderValue = objSlide1.getAttribute('aria-valuenow');
+
         shape.graphics
                 .beginStroke(paintColor)                // 指定のカラーで描画
-                .setStrokeStyle(20, "round")            // 線の太さ、形
+                .setStrokeStyle(sliderValue, "round")            // 線の太さ、形
                 .moveTo(event.stageX, event.stageY);    // 描画開始位置を指定
 
         // ステージ上でマウスを動かした時と離した時のイベント設定
@@ -73,7 +76,7 @@ function init() {
         // 線の描画を終了する
         shape.graphics.endStroke();
 
-        // イベント解除
+        // イベント解除 
         stage1.removeEventListener("stagemousemove", handleMove);
         stage1.removeEventListener("stagemouseup", handleUp);
     }
