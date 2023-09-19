@@ -12,6 +12,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.slim.js"  crossorigin="anonymous"></script>
   <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #000; 
+    }
+
+    canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+  </style>
+  <style>
     #slider {
         width: 240px;
         margin: 0
@@ -20,11 +37,11 @@
 </head>
 <body>
   下の黒い四角形の中に0から9までの数字を書いてください
-  <div style="margin:0 auto;"><canvas id="WriteCanvas" width="280" height="280" style="margin-left: auto; margin-right: auto;"></canvas></div>
+  <div style=""><canvas id="WriteCanvas" width="280" height="280"></canvas></div>
   線の太さ（1:細 30:太）
   <div id="slider" style="margin-left: auto; margin-right: auto; width:280px; height:20px;"></div>
   <div style="height: 100px"></div>
-  <div style="margin-left: auto; margin-right: auto;"><canvas id="ButtonCanvas" width="280" height="100"></canvas></div>
+  <div ><canvas id="ButtonCanvas" width="280" height="100"></canvas></div>
   <!--PNG形式
   <div><img id="copyImg" width="240" height="240" background="#000000"></div> -->
 </body>
