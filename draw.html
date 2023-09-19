@@ -165,7 +165,8 @@ function init() {
         const a = document.createElement("a");
         a.href = stage1.canvas.toDataURL("image/jpeg", 0.75); // PNGなら"image/png"
         // a.download = "image.jpg";
-       a.download = ('0'+String(e_time.getMonth())).slice(-2)+('0'+String(e_time.getDate())).slice(-2)+String(e_time.getTime()).substr(-6) + ".jpg";
+        var e_time = new Date()
+        a.download = ('0'+String(e_time.getMonth())).slice(-2)+('0'+String(e_time.getDate())).slice(-2)+String(e_time.getTime()).substr(-6) + ".jpg";
         a.click();
 
         //var png = stage1.canvas.toDataURL();
