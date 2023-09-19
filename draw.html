@@ -45,8 +45,8 @@
   <div style="height: 50px"></div>
   <P>保存を押すと画像保存，クリアで消去します</P>
   <div ><canvas id="ButtonCanvas" width="280" height="100"></canvas></div>
-  <!--PNG形式
-  <div><img id="copyImg" width="240" height="240" background="#000000"></div> -->
+  <P>保存画像</P>
+  <div><img id="copyImg" width="280" height="280" background="#000000"></div> -->
 </body>
 </html>
 
@@ -163,14 +163,14 @@ function init() {
         stage1.update();
         
         const a = document.createElement("a");
-        a.href = stage1.canvas.toDataURL("image/jpeg", 0.75); // PNGなら"image/png"
-        a.download = "image.jpg";
-        //var e_time = new Date()
-        //a.download = ('0'+String(e_time.getMonth())).slice(-2)+('0'+String(e_time.getDate())).slice(-2)+String(e_time.getTime()).substr(-6) + ".jpg";
+        a.href = stage1.canvas.toDataURL("image/png", 0.75); // PNGなら"image/png"
+        //a.download = "image.jpg";
+        var e_time = new Date()
+        a.download = ('0'+String(e_time.getMonth())).slice(-2)+('0'+String(e_time.getDate())).slice(-2)+String(e_time.getTime()).substr(-6) + ".png";
         a.click();
 
-        //var png = stage1.canvas.toDataURL();
-        //document.getElementById("copyImg").src = png;
+        var png = stage1.canvas.toDataURL();
+        document.getElementById("copyImg").src = png;
 
         /*
         var w = window.open('about:blank');
@@ -188,7 +188,7 @@ function init() {
         shape.graphics.endFill();
         stage1.update();
         var png = stage1.canvas.toDataURL();
-        //document.getElementById("copyImg").src = png;
+        document.getElementById("copyImg").src = png;
     }
 
     // 時間経過イベント
